@@ -115,19 +115,19 @@ def calculate_risk():
 
     risk = round(min(risk, 100), 2)
 
-    return jsonify({
-        "city": city,
-        "crime": crime,
-        "exposure_risk_percent": risk,
-        "risk_level": get_risk_level(risk),
-        "precautions": PRECAUTIONS.get(crime.lower(), []),
-        "note":"The risk shown is an estimate derived from historical crime trends and does not guarantee future events".
-    })
-
+   return jsonify({
+    "city": city,
+    "crime": crime,
+    "exposure_risk_percent": risk,
+    "risk_level": get_risk_level(risk),
+    "precautions": PRECAUTIONS.get(crime.lower(), []),
+    "note": "The risk shown is an estimate derived from historical crime trends and does not guarantee future events."
+})
 import os
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 

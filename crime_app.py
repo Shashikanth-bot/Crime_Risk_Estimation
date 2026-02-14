@@ -121,9 +121,13 @@ def calculate_risk():
         "exposure_risk_percent": risk,
         "risk_level": get_risk_level(risk),
         "precautions": PRECAUTIONS.get(crime.lower(), []),
-        "The risk shown is an estimate derived from historical crime trends and does not guarantee future events.
+        "note":"The risk shown is an estimate derived from historical crime trends and does not guarantee future events".
     })
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+import os
+
+if _name_ == "_main_":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
 
